@@ -12,6 +12,9 @@ const main = async () => {
 		app.use(express.json());
 		app.use(express.urlencoded({ extended: true }));
 
+		app.use("/hello", async (req, res) => {
+			res.json({ data: null, message: "Hello World!" });
+		});
 		app.use("/api", require("./routes/todo.router"));
 
 		app.use("*", async (req, res) => {
